@@ -45,7 +45,7 @@ public class ${className}Controller {
     }
 
     @GetMapping("/select")
-    public Result select(@RequestBody ${className} ${camel}) {
+    public Result select(${className} ${camel}) {
         Result result;
         try {
             List<${className}> list = ${camel}Service.select(${camel});
