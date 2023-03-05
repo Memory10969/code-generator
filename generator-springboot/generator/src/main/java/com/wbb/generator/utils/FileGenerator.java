@@ -13,18 +13,26 @@ public class FileGenerator {
         String username = "root";
         String password = "root";
         String url = "jdbc:mysql://localhost:3307/test?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC";
-        String sql = "select * from t_class";
+        String sql = "select * from t_teacher_class";
 
         try {
-//            ForeignKey foreignKey = new ForeignKey.ForeignKeyBuilder()
-//                    .foreignKey("class_id")
-//                    .joinTable("t_class")
-//                    .joinTablePrimaryKey("id")
-//                    .joinTableLabelColumn("class_name")
-//                    .build();
+            ForeignKey foreignKey1 = new ForeignKey.ForeignKeyBuilder()
+                    .foreignKey("class_id")
+                    .joinTable("t_class")
+                    .joinTablePrimaryKey("id")
+                    .joinTableLabelColumn("class_name")
+                    .build();
+
+            ForeignKey foreignKey2 = new ForeignKey.ForeignKeyBuilder()
+                    .foreignKey("teacher_id")
+                    .joinTable("t_teacher")
+                    .joinTablePrimaryKey("id")
+                    .joinTableLabelColumn("teacher_name")
+                    .build();
 //
-//            List<ForeignKey> list = new LinkedList<>();
-//            list.add(foreignKey);
+            List<ForeignKey> list = new LinkedList<>();
+            list.add(foreignKey1);
+            list.add(foreignKey2);
 
             GeneratorConfig config = new GeneratorConfig.GeneratorConfigBuilder()
                     .driverName(driverName)
@@ -36,7 +44,7 @@ public class FileGenerator {
                     .packageName("com.wbb.generator")//包名
                     .resultPackageName("com.wbb.generator.utils")//返回值类
                     .dirPath("./")//文件夹路径，不会改就别改
-//                    .foreignKeyList(list)//外键列表
+                    .foreignKeyList(list)//外键列表
                     .build();
 
             //entity

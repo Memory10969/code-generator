@@ -45,7 +45,7 @@ public class TStudentController {
     }
 
     @GetMapping("/select")
-    public Result select(@RequestBody TStudent tStudent) {
+    public Result select(TStudent tStudent) {
         Result result;
         try {
             List<TStudent> list = tStudentService.select(tStudent);

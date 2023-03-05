@@ -322,7 +322,7 @@ ${foreignKeyList}
             })
       }
 
-      this.confirm("确认删除吗？", "删除之无法恢复！")
+      this.confirm("确认删除吗？", "删除之后无法恢复！")
           .then((resolve, reject) => {
             console.log("deleteByIds - resolve", resolve)
             console.log("deleteByIds - reject", reject)

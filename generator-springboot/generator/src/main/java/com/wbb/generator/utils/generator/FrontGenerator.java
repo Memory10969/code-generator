@@ -55,7 +55,7 @@ public class FrontGenerator extends BaseGenerator{
             String joinTableLabelColumn = foreignKey.getJoinTableLabelColumn();
             String joinTableLabelColumnVarName = CommonUtil.under2camelCase(joinTableLabelColumn);
 
-            foreignKeyListField.append("\t\t\t\t"+joinTableVarName+"List:[]\r\n");
+            foreignKeyListField.append("\t\t\t\t"+joinTableVarName+"List:[],\r\n");
             selectForeignKey.append("\t\t\tthis.selectForeignKey('"+lowerCaseNameTableName+"','"+joinTableVarName+"List')\r\n");
         }
 
